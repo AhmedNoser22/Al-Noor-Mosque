@@ -1,0 +1,63 @@
+﻿@model ChildVM
+@{
+    ViewData["Title"] = "إضافة طفل";
+}
+
+<!-- ✅ تنسيقات CSS داخل الصفحة -->
+<link href="~/css/entity.css" rel="stylesheet" />
+
+<!-- ✅ محتوى الفورم -->
+<div class="container mt-5" id="add-teacher-form">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg">
+                <div class="card-header">
+                    <h4>➕ إضافة طفل جديد</h4>
+                </div>
+                <div class="card-body bg-white p-4">
+                    <form asp-action="CreateChild" asp-controller="Children" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="Name" class="form-label">الاسم</label>
+                            <input asp-for="Name" class="form-control" placeholder="أدخل الاسم الكامل" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+							<label asp-for="ParentPhone" class="form-label"> رقم الهاتف : الوالد/الوالدة</label>
+                            <input asp-for="ParentPhone" class="form-control" placeholder="أدخل رقم الهاتف" />
+                            <span asp-validation-for="ParentPhone" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Age" class="form-label">العمر</label>
+                            <input asp-for="Age" class="form-control" placeholder="أدخل العمر" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ActivityId" class="form-label">النشاط</label>
+                            <select asp-for="ActivityId" asp-items="Model.Activities" class="form-select">
+                                <option value="">اختر النشاط</option>
+                            </select>
+                            <span asp-validation-for="ActivityId" class="text-danger"></span>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-purple">
+                                <i class="bi bi-save me-2"></i> حفظ 
+                            </button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

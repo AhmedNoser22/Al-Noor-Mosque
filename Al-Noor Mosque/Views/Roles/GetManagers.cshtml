@@ -1,0 +1,43 @@
+﻿@model List<ManagerVM>
+@{
+    ViewData["Title"] = "إدارة الصلاحيات";
+}
+
+<div class="container mt-5 pt-5" id="role-management-section">
+    <h2 class="mb-4 text-white text-center">إدارة الصلاحيات</h2>
+
+    <form asp-action="AddUserToRole" method="post">
+         <input type="hidden" name="roleId" value="@ViewBag.RoleId" /> 
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <div class="form-check mb-2 p-2 rounded" style="background-color: rgba(255,255,255,0.05);">
+                <input class="form-check-input" type="checkbox" asp-for="@Model[i].IsSelected" />
+                <label class="form-check-label" asp-for="@Model[i].UserName">@Model[i].UserName</label>
+                <input type="hidden" asp-for="@Model[i].UserId" />
+                <input type="hidden" asp-for="@Model[i].UserName" />
+            </div>
+        }
+
+        <div asp-validation-summary="All" class="text-danger mt-2"></div>
+
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-primary px-5 py-2" style="border-radius: 25px;">
+                💾 حفظ التغييرات
+            </button>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // النزول تلقائي للجزء المطلوب
+            var section = document.getElementById("role-management-section");
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    </script>
+}

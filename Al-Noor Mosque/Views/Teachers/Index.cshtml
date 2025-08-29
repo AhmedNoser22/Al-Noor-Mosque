@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TeacherDisplayVM>
+@{
+    ViewData["Title"] = "عرض المعلمين";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/show.css" rel="stylesheet" />
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <button onclick="scrollToTeachers()" class="btn btn-success btn-lg shadow rounded-pill px-5">
+            بيانات المعلمين
+        </button>
+    </div>
+
+    <div class="table-responsive" id="teachersTable">
+        <table class="table table-hover table-bordered text-center align-middle shadow rounded">
+            <thead class="table-dark">
+                <tr>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+					<th>رقم التليفون</th>
+                    <th>التخصص</th>
+                    <th>المؤهل</th>
+                    <th>الدرس المسؤول عنه</th>
+                    <th>الصورة </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var teacher in Model)
+                {
+                    <tr>
+                        <td>@teacher.Name</td>
+                        <td>@teacher.Age</td>
+						<td>@teacher.Phone</td>
+                        <td>@teacher.specialization</td>
+						<td>@teacher.Qualification</td>
+						<td>@teacher.ActivityName</td>
+						<td>
+								<img src="@Url.Content(teacher.image)" alt="صورة المعلم" class="img-thumbnail" style="width: 100px; height: 100px;">
+						</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function scrollToTeachers() {
+        var element = document.getElementById("teachersTable");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    window.addEventListener('load', function () {
+        scrollToTeachers();
+    });
+</script>

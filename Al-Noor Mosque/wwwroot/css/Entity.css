@@ -1,0 +1,122 @@
+﻿body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+#add-teacher-form {
+    scroll-margin-top: 100px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+}
+
+.card-header {
+    background: linear-gradient(to right, #6a1b9a, #ab47bc);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+    .card-header h4 {
+        font-weight: bold;
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#add-teacher-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+}
+
+/* شكل المستطيلات بعد التعديل */
+#add-teacher-form input,
+#add-teacher-form select {
+    width: 40%;
+    height: 34px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1.8px solid #ba68c8;
+    background: linear-gradient(135deg, #f3e5f5, #fce4ec);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a148c;
+    box-shadow: 0 0 6px rgba(186, 104, 200, 0.2);
+    transition: all 0.3s ease-in-out;
+    direction: rtl;
+}
+
+    #add-teacher-form input:focus,
+    #add-teacher-form select:focus {
+        background: linear-gradient(135deg, #ede7f6, #f8bbd0);
+        border-color: #8e24aa;
+        box-shadow: 0 0 10px rgba(142, 36, 170, 0.35);
+        outline: none;
+    }
+
+::placeholder {
+    color: #888;
+    opacity: 0.85;
+}
+
+.form-text,
+.text-danger {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.btn-success {
+    background: linear-gradient(to right, #43a047, #66bb6a);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-success:hover {
+        background: linear-gradient(to right, #2e7d32, #388e3c);
+        transform: scale(1.04);
+        cursor: pointer;
+    }
+.btn-purple {
+    background: linear-gradient(to right, #6a1b9a, #ab47bc);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-purple:hover {
+        background: linear-gradient(to right, #4a148c, #8e24aa);
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+.text-danger {
+    font-size: 0.93rem;
+    color: #6f42c1;
+    margin-top: 5px;
+    display: block;
+    font-weight: 600;
+}
+

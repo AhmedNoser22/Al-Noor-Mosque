@@ -1,0 +1,20 @@
+﻿html {
+    scroll-behavior: smooth;
+}
+
+/* ✅ لون بنفسجي للهيدر */
+.table thead {
+    background-color: #6f42c1 !important; /* بنفسجي جميل */
+    color: white !important;
+}
+
+/* ✅ حدود الجدول بنفسجي */
+.table-bordered > :not(caption) > * > * {
+    border-color: #6f42c1;
+}
+
+/* ✅ لما تمرر الماوس على الصف */
+.table-hover tbody tr:hover {
+    background-color: #f3e8ff; /* بنفسجي فاتح */
+}
+

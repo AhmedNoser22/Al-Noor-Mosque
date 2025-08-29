@@ -1,0 +1,57 @@
+﻿body.auth-body.mosque-theme {
+    background: url('/images/mosque-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.auth-container {
+    width: 320px;
+    margin: 8% auto;
+    background: rgba(255,255,255,0.9);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+    .auth-container h2 {
+        margin-bottom: 20px;
+        color: #014D4E;
+    }
+
+    .auth-container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+        .auth-container input[type="password"] {
+            font-family: sans-serif;
+        }
+
+    .auth-container button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        background-color: #01796F;
+        color: white;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .auth-container button:hover {
+            background-color: #016d63;
+        }
+
+    .auth-container a {
+        color: #01796F;
+        text-decoration: none;
+    }
+
+        .auth-container a:hover {
+            text-decoration: underline;
+        }

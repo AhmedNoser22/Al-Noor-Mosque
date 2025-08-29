@@ -1,0 +1,10 @@
+﻿global using Al_Noor.Infrastructure.Entities; 
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.DependencyInjection;
+global using Al_Noor.Infrastructure.Data;
+global using Al_Noor.Infrastructure.Repository;
+global using Al_Noor.Infrastructure.UnitOfWork;
+global using System.Linq.Expressions;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.AspNetCore.Identity;

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<YoungDisplayVM>
+
+@{
+    ViewData["Title"] = "عرض الشباب";
+}
+
+<!-- ✅ Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/show.css" rel="stylesheet" />
+
+<div class="container mt-5">
+
+    <!-- ✅ زر التنقل لأسفل -->
+    <div class="text-center mb-4">
+        <button onclick="scrollToTable()" class="btn btn-success btn-lg shadow rounded-pill px-5">
+            بيانات الشباب
+        </button>
+    </div>
+
+    <!-- ✅ جدول عرض الأطفال -->
+    <div class="table-responsive" id="teachersTable">
+        <table class="table table-hover table-bordered text-center align-middle shadow rounded">
+            <thead class="table-dark">
+                <tr>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+                    <th>رقم التلفون</th>
+                    <th>النشاط المسجل فيه</th>
+                    <th>الصورة</th>
+                    <th>حذف الطالب</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var young in Model)
+                {
+                        <tr>
+                            <td>@young.Name</td>
+                            <td>@young.Age</td>
+                            <td>@young.Phone</td>
+                            <td>@young.ActivityName</td>
+                        <td>
+                            <img src="@Url.Content(young.image)" alt="صورة الطالب" class="img-thumbnail" style="width: 100px; height: 100px;">
+                        </td>
+                            <td>
+                            <form asp-action="Delete" method="post"
+                                     asp-route-id="@young.Id"
+                                  asp-route-imagePath="@young.image"
+                                      onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا الطالب؟');"
+                                      style="display:inline;">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3 d-flex align-items-center gap-1">
+                                        <i class="bi bi-trash3-fill"></i> حذف
+                                    </button>
+                                </form>
+                            </td>
+
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ✅ سكربت التمرير -->
+<script>
+    function scrollToTable() {
+        var element = document.getElementById("teachersTable");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    window.addEventListener('load', function () {
+        scrollToTable();
+    });
+</script>

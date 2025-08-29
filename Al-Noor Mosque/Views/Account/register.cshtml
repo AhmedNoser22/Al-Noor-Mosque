@@ -1,0 +1,39 @@
+﻿@model UserRegister
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>إنشاء حساب جديد</title>
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body class="auth-body mosque-theme">
+    <div class="auth-container">
+        <h2>إنشاء حساب</h2>
+        <form asp-action="Register" method="post">
+            <input asp-for="UserName" placeholder="اسم المستخدم" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+            <input asp-for="Email" placeholder="البريد الإلكتروني" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <input asp-for="Password" type="password" placeholder="كلمة المرور" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input asp-for="ConfirmPassword" type="password" placeholder="تأكيد كلمة المرور" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+            <button type="submit" class="btn btn-primary mt-3">سجل</button>
+
+            <p class="mt-3">هل لديك حساب؟ <a asp-action="Login">سجّل الدخول</a></p>
+
+        </form>
+	</div>
+
+</body>
+</html>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

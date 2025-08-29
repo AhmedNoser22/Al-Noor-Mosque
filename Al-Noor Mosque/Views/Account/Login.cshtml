@@ -1,0 +1,33 @@
+﻿@model UserLogin
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="~/css/auth.css" />
+</head>
+<body class="auth-body mosque-theme">
+    <div class="auth-container">
+        <h2>تسجيل الدخول</h2>
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input asp-for="UserName" placeholder="اسم المستخدم" />
+            <span asp-validation-for="UserName"></span>
+            <input asp-for="Password" type="password" placeholder="كلمة المرور" />
+            <span asp-validation-for="Password"></span>
+            <div>
+                <input asp-for="RememberMe" /> @Html.DisplayNameFor(m => m.RememberMe)
+            </div>
+            <button type="submit">دخول</button>
+            <p>انشاء حساب  <a asp-action="Register">سجل هنا</a></p>
+        </form>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

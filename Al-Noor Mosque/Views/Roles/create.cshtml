@@ -1,0 +1,38 @@
+﻿@model AddRoleVM
+@{
+    ViewData["Title"] = "إضافة صلاحية";
+}
+
+<!-- ✅ تنسيقات CSS داخل الصفحة -->
+<link href="~/css/entity.css" rel="stylesheet" />
+
+<!-- ✅ محتوى الفورم -->
+<div class="container mt-5" id="add-teacher-form">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg">
+                <div class="card-body bg-white p-4">
+                    <form asp-action="Create">
+                        <div class="form-group">
+                            <label asp-for="Name" class="form-label">الاسم</label>
+                            <input asp-for="Name" class="form-control" placeholder="أدخل الصلاحية" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-purple">
+                                <i class="bi bi-save me-2"></i> حفظ الصلاحية
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

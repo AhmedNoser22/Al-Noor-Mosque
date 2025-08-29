@@ -1,0 +1,78 @@
+﻿@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - مسجد النور</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap & Custom -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/mosque.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="mosque-header">
+        <h1><span class="mosque-icon">🕌</span> مسجد النور</h1>
+    </header>
+
+
+    <!-- Navigation -->
+    <partial name="_NavPartial" />
+
+    <!-- Main Content -->
+    <main role="main" class="pb-3 container mosque-body">
+        <div class="inspiration-section mb-4">
+            <blockquote>
+                قال رسول الله ﷺ: "مَن سلك طريقًا يلتمس فيه علمًا، سهَّل الله له به طريقًا إلى الجنة"
+            </blockquote>
+            <blockquote>
+                وَسِيقَ الَّذِينَ اتَّقَوْا رَبَّهُمْ إِلَى الْجَنَّةِ زُمَرًا
+            </blockquote>
+        </div>
+
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="mosque-footer text-center mt-5 p-4">
+        &copy; 2025 - مسجد النور
+
+        <div class="mt-3">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="align-content-center btn btn-danger btn-lg shadow-sm" style="border-radius: 30px;">
+                        🚪 تسجيل الخروج
+                    </button>
+                </form>
+            }
+
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        window.onload = function () {
+            var form = document.getElementById("add-teacher-form");
+            if (form) {
+                form.scrollIntoView({ behavior: "smooth" });
+            }
+        };
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
